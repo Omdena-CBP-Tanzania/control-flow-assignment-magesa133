@@ -1,0 +1,26 @@
+name: Python Control Structures Assignment
+
+test_cases:
+  - name: Test while loop
+    setup: ""
+    run: "python3 tests/test_assignment.py TestControlStructures.test_while_loop"
+    input: ""
+    output: ""
+
+  - name: Test for loop with continue
+    setup: ""
+    run: "python3 tests/test_assignment.py TestControlStructures.test_for_loop_continue"
+    input: ""
+    output: ""
+
+  - name: Test if-else statement
+    setup: ""
+    run: "python3 tests/test_assignment.py TestControlStructures.test_if_else"
+    input: ""
+    output: ""
+
+  - name: Test nested loops
+    setup: ""
+    run: "python3 tests/test_assignment.py TestControlStructures.test_nested_loops"
+    input: ""
+    output: ""
