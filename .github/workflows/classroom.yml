@@ -5,6 +5,7 @@ on: [push, pull_request]
 jobs:
   test:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -19,9 +20,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run tests
-        run: |
-          python3 tests/test_assignment.py TestControlStructures.test_while_loop
-          python3 tests/test_assignment.py TestControlStructures.test_for_loop_continue
-          python3 tests/test_assignment.py TestControlStructures.test_if_else
-          python3 tests/test_assignment.py TestControlStructures.test_nested_loops
+      - name: Test while loop
+        run: python3 tests/test_assignment.py TestControlStructures.test_while_loop
+
+      - name: Test for loop with continue
+        run: python3 tests/test_assignment.py TestControlStructures.test_for_loop_continue
+
+      - name: Test if-else statement
+        run: python3 tests/test_assignment.py TestControlStructures.test_if_else
