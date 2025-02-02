@@ -1,26 +1,27 @@
 name: Python Control Structures Assignment
 
-test_cases:
-  - name: Test while loop
-    setup: ""
-    run: "python3 tests/test_assignment.py TestControlStructures.test_while_loop"
-    input: ""
-    output: ""
+on: [push, pull_request]
 
-  - name: Test for loop with continue
-    setup: ""
-    run: "python3 tests/test_assignment.py TestControlStructures.test_for_loop_continue"
-    input: ""
-    output: ""
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-  - name: Test if-else statement
-    setup: ""
-    run: "python3 tests/test_assignment.py TestControlStructures.test_if_else"
-    input: ""
-    output: ""
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
 
-  - name: Test nested loops
-    setup: ""
-    run: "python3 tests/test_assignment.py TestControlStructures.test_nested_loops"
-    input: ""
-    output: ""
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run tests
+        run: |
+          python3 tests/test_assignment.py TestControlStructures.test_while_loop
+          python3 tests/test_assignment.py TestControlStructures.test_for_loop_continue
+          python3 tests/test_assignment.py TestControlStructures.test_if_else
+          python3 tests/test_assignment.py TestControlStructures.test_nested_loops
